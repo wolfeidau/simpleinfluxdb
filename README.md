@@ -1,7 +1,7 @@
 # simpleinfluxdb
 
-[![NPM](https://nodei.co/npm/svcs.png)](https://nodei.co/npm/simpleinfluxdb/)
-[![NPM](https://nodei.co/npm-dl/svcs.png)](https://nodei.co/npm/simpleinfluxdb/)
+[![NPM](https://nodei.co/npm/simpleinfluxdb.png)](https://nodei.co/npm/simpleinfluxdb/)
+[![NPM](https://nodei.co/npm-dl/simpleinfluxdb.png)](https://nodei.co/npm/simpleinfluxdb/)
 
 This library aims to provide a simple interface to add and read data from [influxdb](http://influxdb.com).
 
