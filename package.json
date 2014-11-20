@@ -1,0 +1,33 @@
+{
+  "name": "simpleinfluxdb",
+  "version": "1.0.0",
+  "description": "A simple wrapper for the InfluxDB API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolfeidau/simpleinfluxdb.git"
+  },
+  "keywords": [
+    "influxdb"
+  ],
+  "author": "Mark Wolfe <mark@wolfe.id.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wolfeidau/simpleinfluxdb/issues"
+  },
+  "homepage": "https://github.com/wolfeidau/simpleinfluxdb",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "debug": "^2.1.0",
+    "hoek": "^2.9.0",
+    "joi": "^4.9.0",
+    "moment": "^2.8.4",
+    "request": "^2.48.0"
+  }
+}
