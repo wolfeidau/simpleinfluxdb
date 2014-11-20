@@ -114,9 +114,9 @@ describe('simpleinfluxdb', function () {
 
         sdbread.write_key('some_key', [{t: new Date(1416451118000), v: 123.1}], function (err, res) {
             expect(testPath).to.equal("/series?u=root&p=root");
-            expect(testBody.name).to.equal('some_key');
-            expect(testBody.columns).to.deep.equal(['time', 'value']);
-            expect(testBody.points).to.deep.equal(
+            expect(testBody[0].name).to.equal('some_key');
+            expect(testBody[0].columns).to.deep.equal(['time', 'value']);
+            expect(testBody[0].points).to.deep.equal(
                 [[1416451118000, 123.1]]
             );
             done();
