@@ -39,7 +39,7 @@ describe('simpleinfluxdb', function () {
         };
 
         sdbread.read(new Date().getTime(), new Date().getTime(), {'function': 'woot'}, function (err, data) {
-            expect(err).to.match(/function must be one of/);
+            expect(err).to.exist;
             done();
         })
 
@@ -57,13 +57,13 @@ describe('simpleinfluxdb', function () {
             start: 'hello',
             end: 'foo'
         }, function (err, data) {
-            expect(err).to.match(/start must be a number/);
+            expect(err).to.exist;
             sdbread.read(new Date().getTime(), new Date().getTime(), {
                 'function': 'count',
                 start: new Date().getTime(),
                 end: 'foo'
             }, function (err, data) {
-                expect(err).to.match(/end must be a number/);
+                expect(err).to.exist;
                 done();
             })
         })
@@ -78,7 +78,7 @@ describe('simpleinfluxdb', function () {
         };
 
         sdbread.write_key('some_key', {}, function (err, res) {
-            expect(err).to.match(/value must be an array/);
+            expect(err).to.exist;
             done();
         })
     });
@@ -94,7 +94,7 @@ describe('simpleinfluxdb', function () {
         };
 
         sdbread.write_key('some_key', [{t: 'woot', v: 123.1}], function (err, res) {
-            expect(err).to.match(/value position 0 fails because t must be a number of milliseconds or valid date string/);
+            expect(err).to.exist;
             expect(testPath).to.equal("");
             done();
         })
