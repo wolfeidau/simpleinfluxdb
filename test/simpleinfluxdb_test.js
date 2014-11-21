@@ -70,6 +70,29 @@ describe('simpleinfluxdb', function () {
 
     });
 
+    it('should read and transform result', function (done) {
+        var sdbread = new SimpleInfluxDB();
+
+        SimpleInfluxDB.prototype._callApi = function (method, path, body, cb) {
+            cb(null, {body: [{points: [[1416451118000, 23.559637793913357]]}]})
+        };
+
+        sdbread.read(new Date().getTime(), new Date().getTime(), {
+            'key': '123_SOMEYO_1_30',
+            'function': 'count',
+            start: 1416554706524,
+            interval: '1min'
+        }, function (err, data) {
+            expect(data).to.exist;
+            debug('read', data);
+            expect(data.body.length).to.equal(1);
+            expect(data.body[0].data.length).to.equal(1);
+            expect(data.body[0].data[0].t).to.equal(1416451118000);
+            expect(data.body[0].data[0].v).to.equal(23.559637793913357);
+            done();
+        })
+    });
+
     it('should write and return an array error', function (done) {
         var sdbread = new SimpleInfluxDB();
 
