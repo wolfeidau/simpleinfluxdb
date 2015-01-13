@@ -87,7 +87,7 @@ describe('simpleinfluxdb', function () {
             debug('read', data);
             expect(data.body.length).to.equal(1);
             expect(data.body[0].data.length).to.equal(1);
-            expect(data.body[0].data[0].t).to.equal(1416451118000);
+            expect(data.body[0].data[0].t).to.deep.equal(new Date(1416451118000));
             expect(data.body[0].data[0].v).to.equal(23.559637793913357);
             done();
         })
